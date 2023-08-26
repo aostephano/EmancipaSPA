@@ -1,0 +1,12 @@
+<h1>{{ title }}</h1>
+
+<div class="selectedSchool" *ngIf="selectedCramSchool">Selected School Element: {{selectedCramSchool?.uuid}}</div>
+
+<div class="card-container">
+<!--  <mat-card *ngFor="let school of cramSchools" (click)="onSelect(school)" [ngClass]="{ 'selected-card': school === selectedCramSchool }">-->
+  <mat-card *ngFor="let school of cramSchools" (click)="onSelect(school)" [class.selected-card]="school === selectedCramSchool" >
+    <a>
+      <app-cram-school-element [selectedSchool]="school"></app-cram-school-element>
+    </a>
+  </mat-card>
+</div>

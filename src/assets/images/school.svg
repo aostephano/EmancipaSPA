@@ -1,0 +1,4 @@
+<!-- school-icon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M12 2C8.48 2 6 4.48 6 8v9c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-9c0-3.52-2.48-6-6-6zm2 16H10v-2h4v2z"/>
+</svg>

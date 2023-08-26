@@ -1,0 +1,17 @@
+/* Center the footer content */
+.footer-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 8px;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the footer content */
+.footer-content {
+  color: #ffffff;
+  font-size: 14px;
+}
