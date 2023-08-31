@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CramSchoolElementComponent } from './cram-school-element.component';
+import { CramSchoolCardComponent } from './cram-school-card.component';
 
 describe('CramSchoolDetailComponent', () => {
-  let component: CramSchoolElementComponent;
-  let fixture: ComponentFixture<CramSchoolElementComponent>;
+  let component: CramSchoolCardComponent;
+  let fixture: ComponentFixture<CramSchoolCardComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CramSchoolElementComponent]
+      declarations: [CramSchoolCardComponent]
     });
-    fixture = TestBed.createComponent(CramSchoolElementComponent);
+    fixture = TestBed.createComponent(CramSchoolCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

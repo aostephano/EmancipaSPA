@@ -1,5 +1,4 @@
-// cram-school-element.component.scss
-
+// cram-school-card.component.scss
 p {
   margin: 16px; // Add spacing around the content
   font-size: 18px;
@@ -13,7 +12,7 @@ a {
   transition: color 0.3s ease; // Add smooth color transition on hover
 
   &:hover {
-    color: #0056b3; // Change link color on hover
+    color: #3fb664; // Change link color on hover
   }
 }
 
@@ -23,3 +22,4 @@ a {
   font-weight: 200;
   letter-spacing: -0.0125em;
 }
+

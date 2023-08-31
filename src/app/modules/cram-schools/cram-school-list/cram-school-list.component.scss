@@ -1,35 +1,49 @@
-@import '@angular/material/theming';
-
-// Import the desired theme
-@include mat-light-theme($my-app-theme);
-$my-app-theme: (
-  primary: mat-palette($mat-indigo),
-  accent: mat-palette($mat-pink),
-  warn: mat-palette($mat-red)
-);
-
-@include angular-material-theme($my-app-theme);
-
-
 .card-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  justify-content: center;
 }
 
-.mat-card {
-  width: 300px;
-  padding: 16px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between cards as needed */
+  justify-content: space-between; /* Use space-between to push last row to the right */
+}
+
+mat-card {
+  width: 250px; /* Adjust card width as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+
+  &:hover {
+    background-color: #f5f5f5; /* Adjust hover color as needed */
+  }
+
+  &.selected-card {
+    background-color: #e0e0e0; /* Adjust selected color as needed */
+  }
 
   a {
     text-decoration: none;
     color: inherit;
   }
+
+  app-cram-school-element {
+    display: block;
+    margin-top: 10px;
+  }
 }
 
-.selected-card {
-  background-color: mat-color($primary, default); // Use the primary color
-  color: white;
+.selectedSchool {
+  //display: none; /* Hide by default */
+  margin-top: 10px;
+}
+
+/* Show the selected school element when there's a selectedCramSchool */
+.selectedSchool[ngIf="selectedCramSchool"] {
+  display: block;
 }

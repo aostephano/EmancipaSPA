@@ -3,11 +3,26 @@ html, body, app-root, main {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent scrollbars */
 }
 
 :host {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top of the column */
+  align-items: stretch; /* Stretch items to take full width of the column */
+  gap: 20px; /* Add spacing between items */
+  padding: 20px; /* Add padding around the column */
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Adjust this to match your design */
+  z-index: 1; /* Ensure the toolbar is above other content */
 }

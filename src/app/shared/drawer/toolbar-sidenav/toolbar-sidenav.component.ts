@@ -10,6 +10,6 @@ export class ToolbarSidenavComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   toggleSidenav() {
-    this.sidenav.toggle();
+    this.sidenav.toggle().then(r => console.log(r));
   }
 }
