@@ -1,12 +1,16 @@
 <h1>{{ title }}</h1>
 
-<div class="selectedSchool" *ngIf="selectedCramSchool">Selected School Element: {{selectedCramSchool?.uuid}}</div>
-
 <div class="card-container">
-<!--  <mat-card *ngFor="let school of cramSchools" (click)="onSelect(school)" [ngClass]="{ 'selected-card': school === selectedCramSchool }">-->
-  <mat-card *ngFor="let school of cramSchools" (click)="onSelect(school)" [class.selected-card]="school === selectedCramSchool" >
-    <a>
-      <app-cram-school-element [selectedSchool]="school"></app-cram-school-element>
-    </a>
-  </mat-card>
+  <div class="card-grid">
+    <mat-card *ngFor="let school of cramSchools" [class.selected-card]="school === selectedCramSchool" routerLink="/cursinhos/{{school.cramSchoolSuffix}}">
+      <!-- Use routerLink to navigate to the detail page with the school's URI as parameter -->
+<!--      <a [routerLink]="['/cursinhos', school.uri]">-->
+        <app-cram-school-card [selectedSchool]="school"></app-cram-school-card>
+<!--      </a>-->
+    </mat-card>
+  </div>
+</div>
+
+<div class="selectedSchool" *ngIf="selectedCramSchool">
+  <!-- This div seems to be for displaying the selected school's details, keep or modify as needed -->
 </div>

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {AboutRoutingModule} from './about-routing.module';
 import {AboutDetailComponent} from "./about-detail/about-detail.component";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import {AboutDetailComponent} from "./about-detail/about-detail.component";
   imports: [
     CommonModule,
     AboutRoutingModule,
+    MatButtonModule,
   ]
 })
 export class AboutModule {

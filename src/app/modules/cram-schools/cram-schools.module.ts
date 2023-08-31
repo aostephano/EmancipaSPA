@@ -2,23 +2,31 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CramSchoolsRoutingModule } from './cram-schools-routing.module';
 import { CramSchoolListComponent } from './cram-school-list/cram-school-list.component';
-import { CramSchoolElementComponent } from './cram-school-element/cram-school-element.component';
+import { CramSchoolCardComponent } from './cram-school-list/cram-school-card/cram-school-card.component';
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule} from "@angular/forms";
+import { CramSchoolDetailComponent } from './cram-school-detail/cram-school-detail.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import { CramSchoolAppComponent } from './cram-school-app.component';
 
 
 @NgModule({
   declarations: [
     CramSchoolListComponent,
-    CramSchoolElementComponent,
+    CramSchoolCardComponent,
+    CramSchoolDetailComponent,
+    CramSchoolAppComponent,
   ],
   imports: [
     CommonModule,
     CramSchoolsRoutingModule,
     MatListModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
   ]
 })
 export class CramSchoolsModule { }

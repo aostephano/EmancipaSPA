@@ -12,13 +12,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdressFormComponent } from './components/adress-form/adress-form.component';
+import { AdressFormComponent } from './shared/components/adress-form/adress-form.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import { ToolbarSidenavComponent } from './shared/drawer/toolbar-sidenav/toolbar-sidenav.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { MessagesComponent } from './shared/messages/messages.component';
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -28,8 +30,10 @@ import { FooterComponent } from './shared/footer/footer.component';
     AdressFormComponent,
     ToolbarSidenavComponent,
     FooterComponent,
+    MessagesComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -46,6 +50,9 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatIconModule,
   ],
   providers: [],
+  exports: [
+    MessagesComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

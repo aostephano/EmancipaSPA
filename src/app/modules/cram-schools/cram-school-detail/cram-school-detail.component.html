@@ -1,0 +1,51 @@
+<!--&lt;!&ndash;<div class="cram-school-details" *ngIf="(selectedCramSchool$ | async) as selectedCramSchool; else noContent">&ndash;&gt;-->
+<!--<div class="cram-school-details" *ngIf="(selectedCramSchool$) as selectedCramSchool; else noContent">-->
+<!--  <h2 class="cram-school-name">{{ selectedCramSchool.name }}</h2>-->
+<!--  <p class="uuid">{{ selectedCramSchool.uuid }}</p>-->
+<!--  <p class="description">{{ selectedCramSchool.description }}</p>-->
+<!--  <div class="address">-->
+<!--    <p class="state">{{ selectedCramSchool.address.state }}</p>-->
+<!--    <p class="city">{{ selectedCramSchool.address.city }}</p>-->
+<!--    <p class="postal-code">{{ selectedCramSchool.address.postalCode }}</p>-->
+<!--  </div>-->
+<!--  <p class="business-hour">{{ selectedCramSchool.businessHour }}</p>-->
+<!--</div>-->
+
+<!--<button mat-button class="back-button" (click)="goBack()">-->
+<!--  <mat-icon>arrow_back</mat-icon>-->
+<!--  Go Back-->
+<!--</button>-->
+
+
+<!--<ng-template #noContent>-->
+<!--  <p>Nao existe cursinho com sufixo</p>-->
+<!--</ng-template>-->
+
+<!--<div class="cram-school-details" *ngIf="(selectedCramSchool$ | async) as selectedCramSchool; else noContent">-->
+<div class="cram-school-details" *ngIf="(selectedCramSchool$) as selectedCramSchool; else noContent">
+  <h2 class="cram-school-name">{{ selectedCramSchool.name }}</h2>
+  <p class="uuid">{{ selectedCramSchool.uuid }}</p>
+  <p class="description">{{ selectedCramSchool.description }}</p>
+  <div class="address">
+    <p class="state">{{ selectedCramSchool.address.state }}</p>
+    <p class="city">{{ selectedCramSchool.address.city }}</p>
+    <p class="postal-code">{{ selectedCramSchool.address.postalCode }}</p>
+  </div>
+  <p class="business-hour">{{ selectedCramSchool.businessHour }}</p>
+
+  <!-- Edit Button -->
+  <button mat-button class="edit-button" (click)="editCramSchool()">
+    <mat-icon>edit</mat-icon>
+    Edit Cram School
+  </button>
+
+  <!-- Back Button -->
+  <button mat-button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    Go Back
+  </button>
+</div>
+
+<ng-template #noContent>
+  <p>Não existe cursinho com sufixo</p>
+</ng-template>

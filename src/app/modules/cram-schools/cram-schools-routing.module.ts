@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {CramSchoolListComponent} from "./cram-school-list/cram-school-list.component";
-import {CramSchoolElementComponent} from "./cram-school-element/cram-school-element.component";
+import {CramSchoolDetailComponent} from "./cram-school-detail/cram-school-detail.component";
+import {CramSchoolAppComponent} from "./cram-school-app.component";
 
 const routes: Routes = [
   {
-    path: '', component: CramSchoolListComponent,
+    path: '', component: CramSchoolAppComponent,
   },
   {
-    path: ':uuid', component: CramSchoolElementComponent,
+    path: ':cramSchoolSuffix', component: CramSchoolDetailComponent,
   }
 ];
 
