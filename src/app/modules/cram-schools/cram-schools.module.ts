@@ -10,6 +10,7 @@ import { CramSchoolDetailComponent } from './cram-school-detail/cram-school-deta
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { CramSchoolAppComponent } from './cram-school-app.component';
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CramSchoolAppComponent } from './cram-school-app.component';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
   ]
 })
 export class CramSchoolsModule { }

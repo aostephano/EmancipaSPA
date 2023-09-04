@@ -10,8 +10,11 @@ import {Location} from "@angular/common";
   styleUrls: ['./cram-school-detail.component.scss']
 })
 export class CramSchoolDetailComponent implements OnInit {
-  // selectedCramSchool$?: Observable<CramSchool | undefined>;
-  selectedCramSchool$?: CramSchool | undefined;
+  // Component
+  editMode = false;
+
+  // Template
+  selectedCramSchool?: CramSchool | undefined;
 
   constructor(private route: ActivatedRoute,
               private cramSchoolService: CramSchoolService,
@@ -21,17 +24,26 @@ export class CramSchoolDetailComponent implements OnInit {
   ngOnInit(): void {
     const cramSchoolSuffix = this.route.snapshot.paramMap.get('cramSchoolSuffix');
     this.cramSchoolService.getCramSchoolBySuffix(cramSchoolSuffix)
-    .subscribe(cramSchool => this.selectedCramSchool$ = cramSchool);
+    .subscribe(cramSchool => this.selectedCramSchool = cramSchool);
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  editCramSchool(): void {
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+  }
+
+  saveChanges(): void {
+    // Get current CramSchool from URI
     const cramSchoolSuffix = this.route.snapshot.paramMap.get('cramSchoolSuffix');
-    this.cramSchoolService.updateCramSchoolBySuffix(cramSchoolSuffix, this.selectedCramSchool$)
-    .subscribe(cramSchool => this.selectedCramSchool$ = cramSchool);
+
+    console.log(this.selectedCramSchool);
+    //Update CramSchool by suffix, passing the selectedCramSchool with the current changes as parameter
+    this.cramSchoolService.updateCramSchoolBySuffix(cramSchoolSuffix, this.selectedCramSchool)
+    .subscribe(cramSchool => this.selectedCramSchool = cramSchool);
+    // The subscribe method is used to update the selectedCramSchool with the new values that come from the request
   }
 
   // ngOnInit(): void {

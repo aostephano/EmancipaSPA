@@ -1,28 +1,4 @@
-<!--&lt;!&ndash;<div class="cram-school-details" *ngIf="(selectedCramSchool$ | async) as selectedCramSchool; else noContent">&ndash;&gt;-->
-<!--<div class="cram-school-details" *ngIf="(selectedCramSchool$) as selectedCramSchool; else noContent">-->
-<!--  <h2 class="cram-school-name">{{ selectedCramSchool.name }}</h2>-->
-<!--  <p class="uuid">{{ selectedCramSchool.uuid }}</p>-->
-<!--  <p class="description">{{ selectedCramSchool.description }}</p>-->
-<!--  <div class="address">-->
-<!--    <p class="state">{{ selectedCramSchool.address.state }}</p>-->
-<!--    <p class="city">{{ selectedCramSchool.address.city }}</p>-->
-<!--    <p class="postal-code">{{ selectedCramSchool.address.postalCode }}</p>-->
-<!--  </div>-->
-<!--  <p class="business-hour">{{ selectedCramSchool.businessHour }}</p>-->
-<!--</div>-->
-
-<!--<button mat-button class="back-button" (click)="goBack()">-->
-<!--  <mat-icon>arrow_back</mat-icon>-->
-<!--  Go Back-->
-<!--</button>-->
-
-
-<!--<ng-template #noContent>-->
-<!--  <p>Nao existe cursinho com sufixo</p>-->
-<!--</ng-template>-->
-
-<!--<div class="cram-school-details" *ngIf="(selectedCramSchool$ | async) as selectedCramSchool; else noContent">-->
-<div class="cram-school-details" *ngIf="(selectedCramSchool$) as selectedCramSchool; else noContent">
+<div class="cram-school-details" *ngIf="(selectedCramSchool) as selectedCramSchool; else noContent">
   <h2 class="cram-school-name">{{ selectedCramSchool.name }}</h2>
   <p class="uuid">{{ selectedCramSchool.uuid }}</p>
   <p class="description">{{ selectedCramSchool.description }}</p>
@@ -33,19 +9,55 @@
   </div>
   <p class="business-hour">{{ selectedCramSchool.businessHour }}</p>
 
-  <!-- Edit Button -->
-  <button mat-button class="edit-button" (click)="editCramSchool()">
-    <mat-icon>edit</mat-icon>
-    Edit Cram School
-  </button>
+  <div class="button-container">
+    <button mat-raised-button (click)="toggleEditMode()">{{ editMode ? 'Cancel' : 'Edit' }}</button>
+    <button mat-raised-button (click)="saveChanges()" *ngIf="editMode">Save Changes</button>
+  </div>
 
-  <!-- Back Button -->
-  <button mat-button class="back-button" (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-    Go Back
-  </button>
+  <!-- Material Design Form -->
+  <form *ngIf="editMode">
+    <!-- Material Input Fields with Labels -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="selectedCramSchool.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>School</mat-label>
+      <input matInput [(ngModel)]="selectedCramSchool.school" name="school">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="selectedCramSchool.description" name="description"></textarea>
+    </mat-form-field>
+
+    <div class="address">
+      <mat-form-field class="example-full-width">
+        <mat-label>State</mat-label>
+        <input matInput [(ngModel)]="selectedCramSchool.address.state" name="state">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>City</mat-label>
+        <input matInput [(ngModel)]="selectedCramSchool.address.city" name="city">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Postal Code</mat-label>
+        <input matInput [(ngModel)]="selectedCramSchool.address.postalCode" name="postalCode">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Business Hour</mat-label>
+      <input matInput [(ngModel)]="selectedCramSchool.businessHour" name="businessHour">
+    </mat-form-field>
+  </form>
 </div>
 
+<button mat-raised-button (click)="goBack()">Go Back</button>
+
 <ng-template #noContent>
-  <p>Não existe cursinho com sufixo</p>
+  <p>No content selected.</p>
 </ng-template>
