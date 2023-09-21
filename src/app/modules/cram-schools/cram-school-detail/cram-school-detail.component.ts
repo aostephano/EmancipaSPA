@@ -17,10 +17,27 @@ export class CramSchoolDetailComponent implements OnInit {
   selectedCramSchool?: CramSchool | undefined;
 
   constructor(private route: ActivatedRoute,
+              private location: Location,
               private cramSchoolService: CramSchoolService,
-              private location: Location
   ) {}
 
+  // CRUD
+    saveChanges(): void {
+    this.toggleEditMode();
+    // Get current CramSchool from URI
+    const cramSchoolSuffix = this.route.snapshot.paramMap.get('cramSchoolSuffix');
+
+    // console.log(this.selectedCramSchool);
+    //Update CramSchool by suffix, passing the selectedCramSchool with the current changes as parameter
+    this.cramSchoolService.updateCramSchoolBySuffix(cramSchoolSuffix, this.selectedCramSchool)
+    .subscribe(cramSchool =>
+    {
+      this.selectedCramSchool = cramSchool;
+    });
+    // The subscribe method is used to update the selectedCramSchool with the new values that come from the request
+  }
+
+  //Component Methods
   ngOnInit(): void {
     const cramSchoolSuffix = this.route.snapshot.paramMap.get('cramSchoolSuffix');
     this.cramSchoolService.getCramSchoolBySuffix(cramSchoolSuffix)
@@ -35,23 +52,4 @@ export class CramSchoolDetailComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
-  saveChanges(): void {
-    // Get current CramSchool from URI
-    const cramSchoolSuffix = this.route.snapshot.paramMap.get('cramSchoolSuffix');
-
-    console.log(this.selectedCramSchool);
-    //Update CramSchool by suffix, passing the selectedCramSchool with the current changes as parameter
-    this.cramSchoolService.updateCramSchoolBySuffix(cramSchoolSuffix, this.selectedCramSchool)
-    .subscribe(cramSchool => this.selectedCramSchool = cramSchool);
-    // The subscribe method is used to update the selectedCramSchool with the new values that come from the request
-  }
-
-  // ngOnInit(): void {
-  //   this.selectedCramSchool$ = this.route.paramMap.pipe(
-  //     // Extract 'cramSchoolSuffix' parameter from route parameters
-  //     map(params => params.get('cramSchoolSuffix')),
-  //     // Fetch cram school details using the extracted 'cramSchoolSuffix'
-  //     switchMap(cramSchoolSuffix => this.cramSchoolService.getCramSchoolBySuffix(cramSchoolSuffix))
-  //   );
-  // }
 }

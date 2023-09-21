@@ -1,63 +1,76 @@
-<div class="cram-school-details" *ngIf="(selectedCramSchool) as selectedCramSchool; else noContent">
-  <h2 class="cram-school-name">{{ selectedCramSchool.name }}</h2>
-  <p class="uuid">{{ selectedCramSchool.uuid }}</p>
-  <p class="description">{{ selectedCramSchool.description }}</p>
-  <div class="address">
-    <p class="state">{{ selectedCramSchool.address.state }}</p>
-    <p class="city">{{ selectedCramSchool.address.city }}</p>
-    <p class="postal-code">{{ selectedCramSchool.address.postalCode }}</p>
-  </div>
-  <p class="business-hour">{{ selectedCramSchool.businessHour }}</p>
-
-  <div class="button-container">
-    <button mat-raised-button (click)="toggleEditMode()">{{ editMode ? 'Cancel' : 'Edit' }}</button>
-    <button mat-raised-button (click)="saveChanges()" *ngIf="editMode">Save Changes</button>
-  </div>
-
-  <!-- Material Design Form -->
-  <form *ngIf="editMode">
-    <!-- Material Input Fields with Labels -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="selectedCramSchool.name" name="name">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>School</mat-label>
-      <input matInput [(ngModel)]="selectedCramSchool.school" name="school">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Description</mat-label>
-      <textarea matInput [(ngModel)]="selectedCramSchool.description" name="description"></textarea>
-    </mat-form-field>
-
+<div class="container-fluid">
+  <div class="cram-school-details"
+       *ngIf="(selectedCramSchool) as selectedCramSchool; else noContent">
+    <h2 class="cram-school-name">{{ selectedCramSchool.name }}</h2>
+    <p class="uuid">{{ selectedCramSchool.uuid }}</p>
+    <p class="description">{{ selectedCramSchool.description }}</p>
     <div class="address">
-      <mat-form-field class="example-full-width">
-        <mat-label>State</mat-label>
-        <input matInput [(ngModel)]="selectedCramSchool.address.state" name="state">
-      </mat-form-field>
+      <p class="state">{{ selectedCramSchool.address.state }}</p>
+      <p class="city">{{ selectedCramSchool.address.city }}</p>
+      <p class="postal-code">{{ selectedCramSchool.address.postalCode }}</p>
+    </div>
+    <p class="business-hour">{{ selectedCramSchool.businessHour }}</p>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>City</mat-label>
-        <input matInput [(ngModel)]="selectedCramSchool.address.city" name="city">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Postal Code</mat-label>
-        <input matInput [(ngModel)]="selectedCramSchool.address.postalCode" name="postalCode">
-      </mat-form-field>
+    <div class="button-container">
+      <button class="btn btn-primary" (click)="toggleEditMode()">{{ editMode ? 'Cancel'
+        : 'Edit' }}</button>
     </div>
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Business Hour</mat-label>
-      <input matInput [(ngModel)]="selectedCramSchool.businessHour" name="businessHour">
-    </mat-form-field>
-  </form>
+    <!-- Bootstrap Form -->
+    <form *ngIf="editMode">
+      <!-- Bootstrap Input Fields with Labels -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedCramSchool.name" name="name"
+               id="name">
+      </div>
+
+      <div class="form-group">
+        <label for="school">School</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedCramSchool.school"
+               name="school" id="school">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" [(ngModel)]="selectedCramSchool.description"
+                  name="description" id="description"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedCramSchool.address.state"
+               name="state" id="state">
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedCramSchool.address.city"
+               name="city" id="city">
+      </div>
+
+      <div class="form-group">
+        <label for="postalCode">Postal Code</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedCramSchool.address.postalCode"
+               name="postalCode" id="postalCode">
+      </div>
+
+      <div class="form-group">
+        <label for="businessHour">Business Hour</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedCramSchool.businessHour"
+               name="businessHour" id="businessHour">
+      </div>
+
+      <div class="button-container">
+        <button class="btn btn-success" (click)="saveChanges()">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+  <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+
+  <ng-template #noContent>
+    <p>No content selected.</p>
+  </ng-template>
+
 </div>
-
-<button mat-raised-button (click)="goBack()">Go Back</button>
-
-<ng-template #noContent>
-  <p>No content selected.</p>
-</ng-template>

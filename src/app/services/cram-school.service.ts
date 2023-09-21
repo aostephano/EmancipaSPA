@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {CramSchool} from "../models/CramSchool";
-import {CRAMSCHOOLS} from "../mock/mock-getAllSchools";
 import {catchError, map, Observable, of, tap} from "rxjs";
 import {MessageService} from "./message.service";
 import {HttpClient} from "@angular/common/http";

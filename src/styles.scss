@@ -1,46 +1,7 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
-// Plus imports for other components in your app.
+/* Importing Bootstrap SCSS file. */
+@import "/node_modules/bootstrap/scss/bootstrap";
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-
-//$Emancipa-primary: mat.define-palette(mat.$green-palette, A200);
-//$Emancipa-accent: mat.define-palette(mat.$gray-palette, 900);
-//$Emancipa-warn: mat.define-palette(mat.$red-palette);
-
-$Emancipa-primary: mat.define-palette(mat.$green-palette, 900, 500, 900); // Cor primária #017c60 (verde)
-$Emancipa-accent: mat.define-palette(mat.$gray-palette, 900, 300, 700);  // Cor de destaque #000000 (preto)
-$Emancipa-warn: mat.define-palette(mat.$red-palette, 500, 300, 700);     // Cor de aviso (opcional)
-
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$Emancipa-theme: mat.define-light-theme((
-  color: (
-    primary: $Emancipa-primary,
-    accent: $Emancipa-accent,
-    warn: $Emancipa-warn,
-  )
-
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.core-theme($Emancipa-theme);
-@include mat.button-theme($Emancipa-theme);
-@include mat.all-component-themes($Emancipa-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
